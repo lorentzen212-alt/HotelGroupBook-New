@@ -39,10 +39,7 @@ import geirangerImg from "@/assets/dest-geiranger.jpg";
 import stockholmImg from "@/assets/dest-stockholm.jpg";
 import copenhagenImg from "@/assets/dest-copenhagen.jpg";
 import { cn } from "@/lib/utils";
-import { EditModeProvider } from "@/components/edit/EditModeProvider";
-import { EditToolbar } from "@/components/edit/EditToolbar";
-import { EditableText } from "@/components/edit/EditableText";
-import { EditableImage } from "@/components/edit/EditableImage";
+import { QuickEdit } from "@/components/quick-edit/QuickEdit";
 
 export const Route = createFileRoute("/")({
   component: HomeRoute,
@@ -117,16 +114,14 @@ const CARD_HEIGHT = "clamp(300px, 52vh, 540px)";
 
 function HomeRoute() {
   return (
-    <EditModeProvider pageKey="home">
-      <Home />
-    </EditModeProvider>
+    <Home />
   );
 }
 
 function Home() {
   return (
     <>
-      <EditToolbar />
+      <QuickEdit />
       <main className="relative w-full bg-[#0A0B0D]">
         {/* ---------------------------- HERO ---------------------------- */}
         <section className="relative h-screen min-h-[620px] w-full overflow-hidden lg:h-[calc(100vh-300px)] lg:min-h-[390px]">
@@ -197,39 +192,25 @@ function Home() {
                 textShadow: "0 2px 30px rgba(4,10,18,0.45)",
               }}
             >
-              <EditableText
-                contentKey="hero.title_line1"
-                value="Group travel,"
-                as="span"
-                className="block"
-              />
-              <EditableText
-                contentKey="hero.title_line2"
-                value="beautifully arranged"
-                as="span"
-                className="block"
-                render={(v) => {
-                  const [first, ...rest] = v.split(" ");
-                  return (
-                    <>
-                      <em className="italic" style={{ fontWeight: 400 }}>
-                        {first}
-                      </em>
-                      {rest.length > 0 ? ` ${rest.join(" ")}` : null}
-                    </>
-                  );
-                }}
-              />
+              <span className="block" data-qe="Hero heading line 1">
+                Group travel,
+              </span>
+              <span className="block" data-qe="Hero heading line 2">
+                <em className="italic" style={{ fontWeight: 400 }}>
+                  beautifully
+                </em>{" "}
+                arranged
+              </span>
             </h1>
 
-            <EditableText
-              contentKey="hero.subtitle"
-              value="One refined platform for leisure groups, meetings, events and hotel booking management across the Nordics."
-              as="p"
-              multiline
+            <p
+              data-qe="Hero subtitle"
               className="mx-auto mt-6 max-w-[620px] text-[15px] font-light leading-[1.7] tracking-[0.015em] text-white/85 lg:text-[17px]"
               style={{ fontFamily: "Inter, sans-serif" }}
-            />
+            >
+              One refined platform for leisure groups, meetings, events and hotel booking
+              management across the Nordics.
+            </p>
 
             {/* Three premium text links with metallic gold dividers */}
             <nav className="mt-10 flex flex-wrap items-center justify-center gap-y-4">
