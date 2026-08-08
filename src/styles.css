@@ -142,17 +142,3 @@
     color: var(--color-foreground);
   }
 }
-
-/* --- Edit mode affordances (only applied while edit mode is active) --- */
-.editable-target {
-  cursor: text;
-  border-radius: 3px;
-  transition: background-color 200ms ease, box-shadow 200ms ease;
-}
-
-.editable-target:hover,
-.editable-target:focus-visible {
-  background-color: rgba(226, 180, 115, 0.07);
-  box-shadow: 0 0 0 1px rgba(226, 180, 115, 0.35);
-  outline: none;
-}
