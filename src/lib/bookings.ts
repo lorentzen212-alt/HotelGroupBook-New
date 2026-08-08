@@ -104,8 +104,8 @@ export async function createBooking(userId: string, input: NewBookingInput) {
       guests: input.guests ?? null,
       delegates: input.delegates ?? null,
       meeting_spaces: input.meetingSpaces ?? null,
-      contact: input.contact,
-      request: input as unknown as Record<string, unknown>,
+      contact: JSON.parse(JSON.stringify(input.contact)),
+      request: JSON.parse(JSON.stringify(input)),
     })
     .select("id, reference")
     .single();
