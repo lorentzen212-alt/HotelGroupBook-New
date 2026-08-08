@@ -118,6 +118,7 @@ const CARD_HEIGHT = "clamp(300px, 52vh, 540px)";
 function Home() {
   return (
     <>
+      <EditToolbar />
       <main className="relative w-full bg-[#0A0B0D]">
         {/* ---------------------------- HERO ---------------------------- */}
         <section className="relative h-screen min-h-[620px] w-full overflow-hidden lg:h-[calc(100vh-300px)] lg:min-h-[390px]">
