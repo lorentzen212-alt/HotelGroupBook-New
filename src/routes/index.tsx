@@ -26,13 +26,11 @@ import {
   LockPremium,
   GroupPremium,
 } from "@/components/PremiumIcons";
-import heroAsset from "@/assets/hero-bg.png.asset.json";
-import homeHeroAsset from "@/assets/homepage-hero-bg.png.asset.json";
-import heroVideoAsset from "@/assets/hero-video.mp4.asset.json";
-import cardLeisureAsset from "@/assets/card-leisure-fjord.png.asset.json";
-import cardMeAsset from "@/assets/card-me-fjord.png.asset.json";
-import cardManageAsset from "@/assets/card-manage-concierge.png.asset.json";
-import logoAsset from "@/assets/hotelgroupbook-logo.png.asset.json";
+import heroPoster from "@/assets/hero-fjord-boat.png";
+import heroVideo from "@/assets/hero-video.mp4";
+import cardMeetings from "@/assets/card-meetings-boardroom.png";
+import cardManage from "@/assets/card-manage-concierge.png";
+import logoImg from "@/assets/hotelgroupbook-logo.png";
 
 import lofotenImg from "@/assets/dest-lofoten.jpg";
 import tromsoImg from "@/assets/dest-tromso.jpg";
@@ -46,8 +44,20 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { property: "og:image", content: heroAsset.url },
-      { name: "twitter:image", content: heroAsset.url },
+      { title: "HotelGroupBook — Group Hotel Bookings in Scandinavia" },
+      {
+        name: "description",
+        content:
+          "One request, multiple hotel offers. Book leisure groups, meetings and events across Scandinavia with expert support and no commitment.",
+      },
+      { property: "og:title", content: "HotelGroupBook — Group Hotel Bookings in Scandinavia" },
+      {
+        property: "og:description",
+        content:
+          "One request, multiple hotel offers. Book leisure groups, meetings and events across Scandinavia.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });
