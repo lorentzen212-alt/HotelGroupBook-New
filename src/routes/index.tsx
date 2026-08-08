@@ -197,22 +197,39 @@ function Home() {
                 textShadow: "0 2px 30px rgba(4,10,18,0.45)",
               }}
             >
-              <span className="block">Group travel,</span>
-              <span className="block">
-                <em className="italic" style={{ fontWeight: 400 }}>
-                  beautifully
-                </em>{" "}
-                arranged
-              </span>
+              <EditableText
+                contentKey="hero.title_line1"
+                value="Group travel,"
+                as="span"
+                className="block"
+              />
+              <EditableText
+                contentKey="hero.title_line2"
+                value="beautifully arranged"
+                as="span"
+                className="block"
+                render={(v) => {
+                  const [first, ...rest] = v.split(" ");
+                  return (
+                    <>
+                      <em className="italic" style={{ fontWeight: 400 }}>
+                        {first}
+                      </em>
+                      {rest.length > 0 ? ` ${rest.join(" ")}` : null}
+                    </>
+                  );
+                }}
+              />
             </h1>
 
-            <p
+            <EditableText
+              contentKey="hero.subtitle"
+              value="One refined platform for leisure groups, meetings, events and hotel booking management across the Nordics."
+              as="p"
+              multiline
               className="mx-auto mt-6 max-w-[620px] text-[15px] font-light leading-[1.7] tracking-[0.015em] text-white/85 lg:text-[17px]"
               style={{ fontFamily: "Inter, sans-serif" }}
-            >
-              One refined platform for leisure groups, meetings, events and hotel
-              booking management across the Nordics.
-            </p>
+            />
 
             {/* Three premium text links with metallic gold dividers */}
             <nav className="mt-10 flex flex-wrap items-center justify-center gap-y-4">
