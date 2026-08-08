@@ -18,7 +18,7 @@ import heroLobby from "@/assets/card-manage-concierge.png";
 import imgBergen from "@/assets/dest-bergen.jpg";
 import imgCopenhagen from "@/assets/dest-copenhagen.jpg";
 
-export const Route = createFileRoute("/bookings/")({
+export const Route = createFileRoute("/manage-bookings")({
   component: ManageBookings,
   head: () => ({
     meta: [
