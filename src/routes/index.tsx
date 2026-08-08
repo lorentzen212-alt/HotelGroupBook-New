@@ -829,10 +829,19 @@ function HowItWorks() {
                   <Icon className="text-[#FFC400]" size={34} strokeWidth={1.75} />
                 </div>
               </div>
-              <h3 className="mt-6 text-[#04111A] text-xl font-semibold">{title}</h3>
-              <p className="mt-3 max-w-xs text-[#3B4A56] text-[15px] leading-relaxed">
-                {desc}
-              </p>
+              <EditableText
+                contentKey={`steps.${i}.title`}
+                value={title}
+                as="h3"
+                className="mt-6 text-[#04111A] text-xl font-semibold"
+              />
+              <EditableText
+                contentKey={`steps.${i}.desc`}
+                value={desc}
+                as="p"
+                multiline
+                className="mt-3 max-w-xs text-[#3B4A56] text-[15px] leading-relaxed"
+              />
             </div>
           ))}
         </div>
