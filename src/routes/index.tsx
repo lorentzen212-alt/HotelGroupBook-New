@@ -810,19 +810,18 @@ function HowItWorks() {
                   <Icon className="text-[#FFC400]" size={34} strokeWidth={1.75} />
                 </div>
               </div>
-              <EditableText
-                contentKey={`steps.${i}.title`}
-                value={title}
-                as="h3"
+              <h3
+                data-qe="Card heading"
                 className="mt-6 text-[#04111A] text-xl font-semibold"
-              />
-              <EditableText
-                contentKey={`steps.${i}.desc`}
-                value={desc}
-                as="p"
-                multiline
+              >
+                {title}
+              </h3>
+              <p
+                data-qe="Card description"
                 className="mt-3 max-w-xs text-[#3B4A56] text-[15px] leading-relaxed"
-              />
+              >
+                {desc}
+              </p>
             </div>
           ))}
         </div>
@@ -864,8 +863,8 @@ function Destinations() {
               href="#"
               className="group relative block overflow-hidden rounded-xl aspect-[4/5] border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FFC400]/40 hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
             >
-              <EditableImage
-                contentKey={`destinations.${d.name}.image`}
+              <img
+                data-qe="Destination image"
                 src={d.img}
                 alt={`${d.name}, ${d.country}`}
                 width={800}
