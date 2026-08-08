@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BookLeisureRouteImport } from './routes/book-leisure'
+import { Route as BookMeetingsEventsRouteImport } from './routes/book-meetings-events'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const BookLeisureRoute = BookLeisureRouteImport.update({
   path: '/book-leisure',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookMeetingsEventsRoute = BookMeetingsEventsRouteImport.update({
+  id: '/book-meetings-events',
+  path: '/book-meetings-events',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/book-leisure': typeof BookLeisureRoute
+  '/book-meetings-events': typeof BookMeetingsEventsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/book-leisure': typeof BookLeisureRoute
+  '/book-meetings-events': typeof BookMeetingsEventsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/book-leisure': typeof BookLeisureRoute
+  '/book-meetings-events': typeof BookMeetingsEventsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/book-leisure'
+  fullPaths: '/' | '/book-leisure' | '/book-meetings-events'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/book-leisure'
-  id: '__root__' | '/' | '/book-leisure'
+  to: '/' | '/book-leisure' | '/book-meetings-events'
+  id: '__root__' | '/' | '/book-leisure' | '/book-meetings-events'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookLeisureRoute: typeof BookLeisureRoute
+  BookMeetingsEventsRoute: typeof BookMeetingsEventsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookLeisureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/book-meetings-events': {
+      id: '/book-meetings-events'
+      path: '/book-meetings-events'
+      fullPath: '/book-meetings-events'
+      preLoaderRoute: typeof BookMeetingsEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookLeisureRoute: BookLeisureRoute,
+  BookMeetingsEventsRoute: BookMeetingsEventsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
