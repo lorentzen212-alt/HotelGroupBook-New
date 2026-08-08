@@ -156,7 +156,7 @@ function Home() {
               <img
                 src={logoImg}
                 alt="HotelGroupBook"
-                className="relative h-[46px] sm:h-[56px] lg:h-[68px] w-auto"
+                className="relative h-[56px] sm:h-[72px] lg:h-[84px] w-auto"
               />
             </a>
             <SiteMenu items={MENU_ITEMS} variant="outline" />
