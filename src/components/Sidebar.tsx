@@ -78,7 +78,7 @@ export function Sidebar({
     return (
       <Link
         key={item.label}
-        to={item.to}
+        to={item.to as never}
         className={`hgb-side-item hgb-rail-item group relative flex w-full items-center rounded-[14px] text-left text-[13.5px] ${
           collapsed ? "gap-0" : "gap-3"
         }`}
@@ -163,7 +163,7 @@ export function Sidebar({
         </span>
         {!collapsed && (
           <span className="min-w-0 flex-1" style={{ opacity: showLabels ? 1 : 0, transition: "opacity 200ms ease" }}>
-            <Link to="/account" className="block truncate text-[12.5px]" style={{ color: SIDE_TEXT }}>
+            <Link to={"/account" as never} className="block truncate text-[12.5px]" style={{ color: SIDE_TEXT }}>
               {displayName || email}
             </Link>
             <button

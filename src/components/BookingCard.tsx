@@ -294,7 +294,7 @@ export function BookingCard({ booking }: { booking: Booking }) {
               {booking.statusNote ?? ""}
             </p>
             <Link
-              {...({ to: `/bookings/${booking.id}` } as never)}
+              to={`/bookings/${booking.id}` as never}
               className="hgb-view-btn hgb-gold-sheen group/btn relative inline-flex shrink-0 items-center gap-4 overflow-hidden whitespace-nowrap rounded-[8px] px-[20px] py-[9px] text-[15px]"
               style={{
                 color: "#E4D3A2",
