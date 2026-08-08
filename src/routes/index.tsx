@@ -39,9 +39,13 @@ import geirangerImg from "@/assets/dest-geiranger.jpg";
 import stockholmImg from "@/assets/dest-stockholm.jpg";
 import copenhagenImg from "@/assets/dest-copenhagen.jpg";
 import { cn } from "@/lib/utils";
+import { EditModeProvider } from "@/components/edit/EditModeProvider";
+import { EditToolbar } from "@/components/edit/EditToolbar";
+import { EditableText } from "@/components/edit/EditableText";
+import { EditableImage } from "@/components/edit/EditableImage";
 
 export const Route = createFileRoute("/")({
-  component: Home,
+  component: HomeRoute,
   head: () => ({
     meta: [
       { title: "HotelGroupBook — Group Hotel Bookings in Scandinavia" },
