@@ -39,9 +39,13 @@ import geirangerImg from "@/assets/dest-geiranger.jpg";
 import stockholmImg from "@/assets/dest-stockholm.jpg";
 import copenhagenImg from "@/assets/dest-copenhagen.jpg";
 import { cn } from "@/lib/utils";
+import { EditModeProvider } from "@/components/edit/EditModeProvider";
+import { EditToolbar } from "@/components/edit/EditToolbar";
+import { EditableText } from "@/components/edit/EditableText";
+import { EditableImage } from "@/components/edit/EditableImage";
 
 export const Route = createFileRoute("/")({
-  component: Home,
+  component: HomeRoute,
   head: () => ({
     meta: [
       { title: "HotelGroupBook — Group Hotel Bookings in Scandinavia" },
@@ -111,9 +115,18 @@ const HERO_LINKS = [
 
 const CARD_HEIGHT = "clamp(300px, 52vh, 540px)";
 
+function HomeRoute() {
+  return (
+    <EditModeProvider pageKey="home">
+      <Home />
+    </EditModeProvider>
+  );
+}
+
 function Home() {
   return (
     <>
+      <EditToolbar />
       <main className="relative w-full bg-[#0A0B0D]">
         {/* ---------------------------- HERO ---------------------------- */}
         <section className="relative h-screen min-h-[620px] w-full overflow-hidden lg:h-[calc(100vh-300px)] lg:min-h-[390px]">
@@ -184,22 +197,39 @@ function Home() {
                 textShadow: "0 2px 30px rgba(4,10,18,0.45)",
               }}
             >
-              <span className="block">Group travel,</span>
-              <span className="block">
-                <em className="italic" style={{ fontWeight: 400 }}>
-                  beautifully
-                </em>{" "}
-                arranged
-              </span>
+              <EditableText
+                contentKey="hero.title_line1"
+                value="Group travel,"
+                as="span"
+                className="block"
+              />
+              <EditableText
+                contentKey="hero.title_line2"
+                value="beautifully arranged"
+                as="span"
+                className="block"
+                render={(v) => {
+                  const [first, ...rest] = v.split(" ");
+                  return (
+                    <>
+                      <em className="italic" style={{ fontWeight: 400 }}>
+                        {first}
+                      </em>
+                      {rest.length > 0 ? ` ${rest.join(" ")}` : null}
+                    </>
+                  );
+                }}
+              />
             </h1>
 
-            <p
+            <EditableText
+              contentKey="hero.subtitle"
+              value="One refined platform for leisure groups, meetings, events and hotel booking management across the Nordics."
+              as="p"
+              multiline
               className="mx-auto mt-6 max-w-[620px] text-[15px] font-light leading-[1.7] tracking-[0.015em] text-white/85 lg:text-[17px]"
               style={{ fontFamily: "Inter, sans-serif" }}
-            >
-              One refined platform for leisure groups, meetings, events and hotel
-              booking management across the Nordics.
-            </p>
+            />
 
             {/* Three premium text links with metallic gold dividers */}
             <nav className="mt-10 flex flex-wrap items-center justify-center gap-y-4">
@@ -799,10 +829,19 @@ function HowItWorks() {
                   <Icon className="text-[#FFC400]" size={34} strokeWidth={1.75} />
                 </div>
               </div>
-              <h3 className="mt-6 text-[#04111A] text-xl font-semibold">{title}</h3>
-              <p className="mt-3 max-w-xs text-[#3B4A56] text-[15px] leading-relaxed">
-                {desc}
-              </p>
+              <EditableText
+                contentKey={`steps.${i}.title`}
+                value={title}
+                as="h3"
+                className="mt-6 text-[#04111A] text-xl font-semibold"
+              />
+              <EditableText
+                contentKey={`steps.${i}.desc`}
+                value={desc}
+                as="p"
+                multiline
+                className="mt-3 max-w-xs text-[#3B4A56] text-[15px] leading-relaxed"
+              />
             </div>
           ))}
         </div>
@@ -844,7 +883,8 @@ function Destinations() {
               href="#"
               className="group relative block overflow-hidden rounded-xl aspect-[4/5] border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FFC400]/40 hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
             >
-              <img
+              <EditableImage
+                contentKey={`destinations.${d.name}.image`}
                 src={d.img}
                 alt={`${d.name}, ${d.country}`}
                 width={800}
