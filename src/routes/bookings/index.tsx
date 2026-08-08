@@ -47,7 +47,6 @@ const SAMPLE_BOOKINGS: Booking[] = [
   {
     id: "1",
     reference: "HGB-2026-00104",
-    hotelReference: undefined,
     type: "leisure",
     name: "Bergen Group Stay",
     destination: "Bergen, NO",
