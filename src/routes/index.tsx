@@ -151,12 +151,16 @@ function Home() {
 
           {/* HEADER */}
           <header className="absolute inset-x-0 top-0 z-30 flex h-[88px] items-center justify-between px-5 sm:px-8 lg:px-[50px] xl:px-[60px]">
-            <a href="/" aria-label="HotelGroupBook" className="logo-hover-wrap relative flex items-center">
+            <a
+              href="/"
+              aria-label="HotelGroupBook"
+              className="logo-hover-wrap relative flex items-center rounded-lg bg-[#0A0B0D]/40 px-2 py-0.5 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.35)]"
+            >
               <span className="logo-mist" aria-hidden="true" />
               <img
                 src={logoImg}
                 alt="HotelGroupBook"
-                className="relative h-[56px] sm:h-[72px] lg:h-[84px] w-auto"
+                className="relative h-[56px] sm:h-[72px] lg:h-[84px] w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
               />
             </a>
             <SiteMenu items={MENU_ITEMS} variant="outline" />
