@@ -150,7 +150,7 @@ function Home() {
           />
 
           {/* HEADER */}
-          <header className="absolute inset-x-0 top-0 z-30 flex h-[128px] sm:h-[160px] lg:h-[184px] items-center justify-between px-5 sm:px-8 lg:px-[50px] xl:px-[60px]">
+          <header className="absolute inset-x-0 top-0 z-30 flex h-[100px] sm:h-[120px] lg:h-[140px] items-center justify-between px-5 sm:px-8 lg:px-[50px] xl:px-[60px]">
             <a
               href="/"
               aria-label="HotelGroupBook"
@@ -160,7 +160,7 @@ function Home() {
               <img
                 src={logoImg}
                 alt="HotelGroupBook"
-                className="relative h-[112px] sm:h-[144px] lg:h-[168px] w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
+                className="relative h-[80px] sm:h-[100px] lg:h-[120px] w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
               />
             </a>
             <SiteMenu items={MENU_ITEMS} variant="outline" />
