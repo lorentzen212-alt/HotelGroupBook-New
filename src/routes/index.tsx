@@ -115,6 +115,14 @@ const HERO_LINKS = [
 
 const CARD_HEIGHT = "clamp(300px, 52vh, 540px)";
 
+function HomeRoute() {
+  return (
+    <EditModeProvider pageKey="home">
+      <Home />
+    </EditModeProvider>
+  );
+}
+
 function Home() {
   return (
     <>
