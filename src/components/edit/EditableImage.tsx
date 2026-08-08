@@ -55,7 +55,11 @@ export function EditableImage({
         <button
           type="button"
           disabled={busy}
-          onClick={() => inputRef.current?.click()}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            inputRef.current?.click();
+          }}
           className="pointer-events-auto relative inline-flex items-center gap-2 rounded-md border border-[#E2B473]/50 bg-[#0A0B0D]/85 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-[#E7D3AE] backdrop-blur-sm transition-colors hover:border-[#E2B473] hover:text-[#F3E3C4]"
         >
           <ImageUp size={13} strokeWidth={1.75} />
