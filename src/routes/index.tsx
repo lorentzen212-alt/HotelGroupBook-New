@@ -123,12 +123,12 @@ function Home() {
             loop
             playsInline
             preload="auto"
-            poster={homeHeroAsset.url}
+            poster={heroPoster}
             aria-hidden
             className="pointer-events-none absolute inset-0 h-full w-full object-cover"
             style={{ objectPosition: "center center" }}
           >
-            <source src={heroVideoAsset.url} type="video/mp4" />
+            <source src={heroVideo} type="video/mp4" />
           </video>
 
           {/* Cinematic overlay — soft navy gradient + gentle vignette */}
@@ -154,7 +154,7 @@ function Home() {
             <a href="/" aria-label="HotelGroupBook" className="logo-hover-wrap relative flex items-center">
               <span className="logo-mist" aria-hidden="true" />
               <img
-                src={logoAsset.url}
+                src={logoImg}
                 alt="HotelGroupBook"
                 className="relative h-[46px] sm:h-[56px] lg:h-[68px] w-auto"
               />
@@ -277,7 +277,7 @@ function Home() {
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-[38px]">
               <ExperienceCard
                 to="/book-leisure"
-                image={cardLeisureAsset.url}
+                image={heroPoster}
                 imagePosition="center 46%"
                 label="L E I S U R E"
                 tagline="Group Hotel Booking"
@@ -290,7 +290,7 @@ function Home() {
               />
               <ExperienceCard
                 to="/book-meetings-events"
-                image={cardMeAsset.url}
+                image={cardMeetings}
                 imagePosition="center 42%"
                 label="M & E"
                 tagline="Professional Event Planning"
@@ -304,7 +304,7 @@ function Home() {
 
               <ExperienceCard
                 to="/manage-bookings"
-                image={cardManageAsset.url}
+                image={cardManage}
                 imagePosition="center 45%"
                 label="M A N A G E"
                 tagline="Manage Your Bookings"
@@ -994,7 +994,7 @@ function SiteFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2">
             <a href="/" aria-label="HotelGroupBook" className="inline-flex items-center">
-              <img src={logoAsset.url} alt="HotelGroupBook" className="h-10 w-auto" />
+              <img src={logoImg} alt="HotelGroupBook" className="h-10 w-auto" />
             </a>
 
             <p className="mt-3 text-[#8A96A2] text-sm">

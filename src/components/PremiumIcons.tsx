@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
  */
 
 type IconProps = {
-  size?: number;
-  className?: string;
-  strokeWidth?: number;
+  size?: number | undefined;
+  className?: string | undefined;
+  strokeWidth?: number | undefined;
 };
 
 const CHARCOAL_FILL = "#171717";
@@ -22,8 +22,8 @@ function Base({
   className,
   children,
 }: {
-  size?: number;
-  className?: string;
+  size?: number | undefined;
+  className?: string | undefined;
   children: React.ReactNode;
 }) {
   return (
