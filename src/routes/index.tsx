@@ -998,7 +998,7 @@ function SiteFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2">
             <a href="/" aria-label="HotelGroupBook" className="inline-flex items-center">
-              <img src={logoImg} alt="HotelGroupBook" className="h-10 w-auto" />
+              <img src={logoImg} alt="HotelGroupBook" className="h-12 sm:h-14 lg:h-[60px] w-auto" />
             </a>
 
             <p className="mt-3 text-[#8A96A2] text-sm">
