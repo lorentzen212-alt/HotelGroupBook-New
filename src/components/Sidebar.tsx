@@ -23,7 +23,7 @@ export const RAIL_MS = 400;
 
 const PRIMARY_NAV = [
   { label: "Dashboard", icon: CalendarCheck, to: "/" },
-  { label: "My Bookings", icon: CalendarDays, to: "/bookings" },
+  { label: "My Bookings", icon: CalendarDays, to: "/manage-bookings" },
   { label: "Rooming Lists", icon: ClipboardList, to: "/rooming" },
   { label: "Documents", icon: FileText, to: "/documents" },
   { label: "Messages", icon: MessageSquare, to: "/messages" },
