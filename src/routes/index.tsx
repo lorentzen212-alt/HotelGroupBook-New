@@ -883,7 +883,8 @@ function Destinations() {
               href="#"
               className="group relative block overflow-hidden rounded-xl aspect-[4/5] border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-[#FFC400]/40 hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
             >
-              <img
+              <EditableImage
+                contentKey={`destinations.${d.name}.image`}
                 src={d.img}
                 alt={`${d.name}, ${d.country}`}
                 width={800}
