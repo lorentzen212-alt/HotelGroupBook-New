@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BookLeisureRouteImport } from './routes/book-leisure'
+import { Route as BookMeetingsEventsRouteImport } from './routes/book-meetings-events'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookLeisureRoute = BookLeisureRouteImport.update({
+  id: '/book-leisure',
+  path: '/book-leisure',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookMeetingsEventsRoute = BookMeetingsEventsRouteImport.update({
+  id: '/book-meetings-events',
+  path: '/book-meetings-events',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/book-leisure': typeof BookLeisureRoute
+  '/book-meetings-events': typeof BookMeetingsEventsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/book-leisure': typeof BookLeisureRoute
+  '/book-meetings-events': typeof BookMeetingsEventsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/book-leisure': typeof BookLeisureRoute
+  '/book-meetings-events': typeof BookMeetingsEventsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/book-leisure' | '/book-meetings-events'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/book-leisure' | '/book-meetings-events'
+  id: '__root__' | '/' | '/book-leisure' | '/book-meetings-events'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookLeisureRoute: typeof BookLeisureRoute
+  BookMeetingsEventsRoute: typeof BookMeetingsEventsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +68,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/book-leisure': {
+      id: '/book-leisure'
+      path: '/book-leisure'
+      fullPath: '/book-leisure'
+      preLoaderRoute: typeof BookLeisureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-meetings-events': {
+      id: '/book-meetings-events'
+      path: '/book-meetings-events'
+      fullPath: '/book-meetings-events'
+      preLoaderRoute: typeof BookMeetingsEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookLeisureRoute: BookLeisureRoute,
+  BookMeetingsEventsRoute: BookMeetingsEventsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
