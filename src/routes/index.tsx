@@ -216,7 +216,7 @@ function Home() {
                     />
                   )}
                   <Link
-                    to={link.to}
+                    to={link.to as never}
                     className="group/link relative px-3 text-[12.5px] uppercase tracking-[0.24em] text-white/92 transition-colors duration-300 hover:text-white lg:text-[13.5px]"
                     style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}
                   >
