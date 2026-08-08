@@ -7,23 +7,23 @@ export type NewBookingInput = {
   bookingType: BookingType;
   name: string;
   destination: string;
-  country?: string;
-  city?: string;
-  hotelName?: string;
+  country?: string | undefined;
+  city?: string | undefined;
+  hotelName?: string | undefined;
   startDate: string;
   endDate: string;
-  rooms?: number;
-  guests?: number;
-  delegates?: number;
-  meetingSpaces?: number;
-  notes?: string;
+  rooms?: number | undefined;
+  guests?: number | undefined;
+  delegates?: number | undefined;
+  meetingSpaces?: number | undefined;
+  notes?: string | undefined;
   contact: {
     firstName: string;
     lastName: string;
     email: string;
-    phone?: string;
-    companyName?: string;
-    country?: string;
+    phone?: string | undefined;
+    companyName?: string | undefined;
+    country?: string | undefined;
   };
 };
 
