@@ -95,7 +95,7 @@ function FilterSelect({
         aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full cursor-pointer appearance-none bg-transparent py-[12px] pl-4 pr-10 text-left text-[14px] outline-none"
+        className="w-full cursor-pointer appearance-none bg-transparent py-[10px] pl-4 pr-10 text-left text-[13.5px] outline-none"
         style={{ color: "#3B3B34", letterSpacing: "0.005em" }}
       >
         {options.map((o) => (
