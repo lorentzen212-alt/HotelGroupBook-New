@@ -162,7 +162,7 @@ export function BookingCard({ booking }: { booking: Booking }) {
   return (
     <div className="hgb-card-recess">
       <article
-        className="hgb-booking-card group relative grid grid-cols-1 items-stretch gap-[18px] overflow-hidden py-[22px] pr-[24px] transition-all duration-300 sm:grid-cols-[230px_minmax(0,1fr)] lg:grid-cols-[258px_minmax(0,1fr)]"
+        className="hgb-booking-card group relative grid grid-cols-1 items-stretch gap-[14px] overflow-hidden py-[16px] pr-[18px] transition-all duration-300 sm:grid-cols-[196px_minmax(0,1fr)] lg:grid-cols-[214px_minmax(0,1fr)]"
         style={{
           backgroundImage: [
             "radial-gradient(120% 110% at 10% 0%, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.018) 32%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.14) 100%)",
@@ -197,7 +197,7 @@ export function BookingCard({ booking }: { booking: Booking }) {
             <img
               src={booking.image}
               alt={booking.destination}
-              className="h-[148px] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] sm:h-full"
+              className="h-[124px] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] sm:h-full"
               style={{ filter: "saturate(0.95) contrast(1.06) brightness(0.84)" }}
             />
             <span
@@ -213,7 +213,7 @@ export function BookingCard({ booking }: { booking: Booking }) {
             <div className="min-w-0">
               <TypeChip type={booking.type} />
               <h3
-                className="mt-[7px] truncate text-[28px] leading-[1.05] tracking-[0.002em]"
+                className="mt-[5px] truncate text-[23px] leading-[1.05] tracking-[0.002em]"
                 style={{ color: PEARL, fontFamily: SERIF, fontWeight: 500 }}
               >
                 {booking.name}
@@ -236,11 +236,11 @@ export function BookingCard({ booking }: { booking: Booking }) {
             </div>
           </div>
 
-          <div className="mt-[9px] flex flex-wrap items-center gap-[7px]">
+          <div className="mt-[7px] flex flex-wrap items-center gap-[6px]">
             {metas.map((m, i) => (
               <span
                 key={i}
-                className="inline-flex items-center gap-[9px] whitespace-nowrap rounded-[5px] px-[12px] py-[5px] text-[13px] font-light"
+                className="inline-flex items-center gap-[7px] whitespace-nowrap rounded-[5px] px-[10px] py-[4px] text-[12.5px] font-light"
                 style={{
                   color: "#E6EDF3",
                   border: "1px solid rgba(255,255,255,0.055)",
@@ -257,45 +257,45 @@ export function BookingCard({ booking }: { booking: Booking }) {
           </div>
 
           <div
-            className="mt-[8px] grid grid-cols-1 overflow-hidden rounded-[8px] sm:grid-cols-2"
+            className="mt-[7px] grid grid-cols-1 overflow-hidden rounded-[8px] sm:grid-cols-2"
             style={{
               border: "1px solid rgba(255,255,255,0.055)",
               background: "linear-gradient(180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.09) 100%)",
               boxShadow: "inset 0 2px 4px rgba(0,0,0,0.22), inset 0 -1px 0 rgba(255,255,255,0.035), 0 1px 0 rgba(255,255,255,0.04)",
             }}
           >
-            <div className="px-[20px] py-[8px]">
+            <div className="px-[16px] py-[6px]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: CHAMPAGNE }}>
                 Your reference
               </p>
-              <p className="mt-[3px] text-[17px] leading-none" style={{ color: IVORY }}>
+              <p className="mt-[2px] text-[15px] leading-none" style={{ color: IVORY }}>
                 {booking.reference}
               </p>
             </div>
-            <div className="px-[20px] py-[8px]" style={{ borderLeft: "1px solid rgba(255,255,255,0.07)" }}>
+            <div className="px-[16px] py-[6px]" style={{ borderLeft: "1px solid rgba(255,255,255,0.07)" }}>
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: CHAMPAGNE }}>
                 Hotel reference
               </p>
-              <p className="mt-[3px] text-[17px] leading-none" style={{ color: booking.hotelReference ? IVORY : "#93A5B2" }}>
+              <p className="mt-[2px] text-[15px] leading-none" style={{ color: booking.hotelReference ? IVORY : "#93A5B2" }}>
                 {booking.hotelReference ?? "Pending"}
               </p>
             </div>
           </div>
 
-          <div className="mt-[10px]">
+          <div className="mt-[8px]">
             <Timeline status={booking.status} />
           </div>
 
           <div
-            className="mt-[9px] flex flex-nowrap items-center justify-between gap-4 pt-[8px]"
+            className="mt-[8px] flex flex-nowrap items-center justify-between gap-4 pt-[7px]"
             style={{ borderTop: "1px solid rgba(255,255,255,0.038)" }}
           >
-            <p className="min-w-0 flex-1 truncate text-[14px] font-light" style={{ color: "#AFC0CD" }}>
+            <p className="min-w-0 flex-1 truncate text-[13px] font-light" style={{ color: "#AFC0CD" }}>
               {booking.statusNote ?? ""}
             </p>
             <Link
               to={`/bookings/${booking.id}` as never}
-              className="hgb-view-btn hgb-gold-sheen group/btn relative inline-flex shrink-0 items-center gap-4 overflow-hidden whitespace-nowrap rounded-[8px] px-[20px] py-[9px] text-[15px]"
+              className="hgb-view-btn hgb-gold-sheen group/btn relative inline-flex shrink-0 items-center gap-3 overflow-hidden whitespace-nowrap rounded-[8px] px-[16px] py-[7px] text-[14px]"
               style={{
                 color: "#E4D3A2",
                 border: "1.5px solid transparent",
@@ -304,7 +304,7 @@ export function BookingCard({ booking }: { booking: Booking }) {
               }}
             >
               <span className="hgb-champagne-metal">View status</span>
-              <ArrowRight size={18} className="transition-transform duration-300 group-hover/btn:translate-x-[3px]" style={{ color: CHAMPAGNE }} />
+              <ArrowRight size={16} className="transition-transform duration-300 group-hover/btn:translate-x-[3px]" style={{ color: CHAMPAGNE }} />
             </Link>
           </div>
         </div>
