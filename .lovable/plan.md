@@ -1,6 +1,10 @@
-# Gullinjen (venstre gullkant) — eksakt kode
+# Gullinjen — kode til å lime inn i Hotel Group Direct
 
-Gullstripen på bookingkortet består av tre deler som må kopieres nøyaktig for at den skal se 100 % lik ut.
+Kortet skal inn på `/manage-bookings` i prosjektet [Hotel Group Direct](/projects/fb9669d6-b884-43e2-92bd-ec0fc9f2bf9c). Jeg kan lese fra det prosjektet, men ikke skrive til det — du må åpne det prosjektet og lime inn koden under (eller be agenten der om å gjøre det).
+
+I det prosjektet ligger kortet i `src/routes/manage-bookings.tsx` og gullstripen er i dag `.hgb-card-insert` i `src/styles.css`. For 100 % likhet: bytt den ut med varianten under.
+
+Gullstripen består av tre deler som må kopieres nøyaktig.
 
 ## 1. Gradienten
 
