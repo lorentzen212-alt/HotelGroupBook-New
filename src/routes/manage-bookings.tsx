@@ -95,7 +95,7 @@ function FilterSelect({
         aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full cursor-pointer appearance-none bg-transparent py-[12px] pl-4 pr-10 text-left text-[14px] outline-none"
+        className="w-full cursor-pointer appearance-none bg-transparent py-[10px] pl-4 pr-10 text-left text-[13.5px] outline-none"
         style={{ color: "#3B3B34", letterSpacing: "0.005em" }}
       >
         {options.map((o) => (
@@ -129,7 +129,7 @@ function StatTile({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className="relative flex h-[112px] w-full items-center gap-[18px] overflow-hidden rounded-[14px] px-[22px] text-left transition-transform hover:-translate-y-px"
+      className="relative flex h-[84px] w-full items-center gap-[14px] overflow-hidden rounded-[12px] px-[18px] text-left transition-transform hover:-translate-y-px"
       style={{
         background: "linear-gradient(180deg, #2B3746 0%, #232E3B 100%)",
         border: `1px solid ${active || action ? "rgba(226,190,110,0.75)" : "rgba(255,255,255,0.09)"}`,
@@ -148,10 +148,10 @@ function StatTile({
         {icon}
       </span>
       <span className="min-w-0">
-        <span className="block text-[38px] leading-none" style={{ color: "#F3F1EB", fontFamily: SERIF }}>
+        <span className="block text-[30px] leading-none" style={{ color: "#F3F1EB", fontFamily: SERIF }}>
           {count}
         </span>
-        <span className="mt-[6px] block truncate text-[14px]" style={{ color: "#B9C6D2" }}>
+        <span className="mt-[4px] block truncate text-[13px]" style={{ color: "#B9C6D2" }}>
           {label}
         </span>
       </span>
@@ -197,7 +197,7 @@ function ManageBookings() {
 
       <main className="hgb-rail-shift relative min-h-screen" style={{ ["--rail-w" as string]: `${collapsed ? 76 : 240}px` }}>
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-[240px] sm:h-[300px] lg:h-[332px]"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[180px] sm:h-[220px] lg:h-[248px]"
           aria-hidden
           style={{
             maskImage: "linear-gradient(180deg, #000 0%, #000 calc(100% - 60px), rgba(0,0,0,0) 100%)",
@@ -211,13 +211,13 @@ function ManageBookings() {
           />
         </div>
 
-        <div className="relative mx-auto w-full max-w-[1580px] px-4 pb-10 pt-5 sm:px-6 lg:px-8 xl:px-10">
-          <header className="mt-[28px] flex items-start justify-between gap-6">
+        <div className="relative mx-auto w-full max-w-[1580px] px-4 pb-8 pt-4 sm:px-6 lg:px-8 xl:px-10">
+          <header className="mt-[12px] flex items-start justify-between gap-6">
             <div className="min-w-0">
-              <h1 className="text-[42px] leading-[1.02] sm:text-[56px]" style={{ color: "#F1EFE9", fontFamily: SERIF }}>
+              <h1 className="text-[34px] leading-[1.02] sm:text-[42px]" style={{ color: "#F1EFE9", fontFamily: SERIF }}>
                 My Bookings
               </h1>
-              <p className="mt-2 text-[16px]" style={{ color: "#CBD5DF" }}>
+              <p className="mt-1 text-[14px]" style={{ color: "#CBD5DF" }}>
                 Stay on top of every group, every stay.
               </p>
             </div>
@@ -258,21 +258,21 @@ function ManageBookings() {
             </div>
           </header>
 
-          <section className="mt-[34px] grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            <StatTile label="Awaiting response" count={counts.awaiting} icon={<Hourglass size={30} strokeWidth={1.4} />} active={false} onClick={() => {}} />
-            <StatTile label="Proposal ready" count={counts.proposal} icon={<FileSignature size={30} strokeWidth={1.4} />} action active={false} onClick={() => {}} />
-            <StatTile label="Confirmed" count={counts.confirmed} icon={<Check size={30} strokeWidth={1.4} />} active={false} onClick={() => {}} />
-            <StatTile label="Total bookings" count={bookings.length} icon={<Briefcase size={30} strokeWidth={1.4} />} active={false} onClick={() => {}} />
+          <section className="mt-[20px] grid grid-cols-1 items-stretch gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            <StatTile label="Awaiting response" count={counts.awaiting} icon={<Hourglass size={24} strokeWidth={1.4} />} active={false} onClick={() => {}} />
+            <StatTile label="Proposal ready" count={counts.proposal} icon={<FileSignature size={24} strokeWidth={1.4} />} action active={false} onClick={() => {}} />
+            <StatTile label="Confirmed" count={counts.confirmed} icon={<Check size={24} strokeWidth={1.4} />} active={false} onClick={() => {}} />
+            <StatTile label="Total bookings" count={bookings.length} icon={<Briefcase size={24} strokeWidth={1.4} />} active={false} onClick={() => {}} />
           </section>
 
           <section
-            className="hgb-stone-surface relative isolate mt-[18px] overflow-hidden rounded-[22px] p-[22px] sm:p-[26px]"
+            className="hgb-stone-surface relative isolate mt-[14px] overflow-hidden rounded-[18px] p-[16px] sm:p-[18px]"
             style={{
               border: "1px solid rgba(120,116,104,0.22)",
               boxShadow: "inset 0 1px 0 rgba(255,255,255,0.62), inset 0 -1px 0 rgba(0,0,0,0.06), 0 26px 60px -28px rgba(6,10,15,0.62)",
             }}
           >
-            <div className="mb-[14px] flex flex-wrap items-center gap-2">
+            <div className="mb-[10px] flex flex-wrap items-center gap-2">
               {(["active", "cancelled", "all"] as const).map((key) => {
                 const label = key === "active" ? "Active Bookings" : key === "cancelled" ? "Cancelled Bookings" : "All Bookings";
                 const on = scope === key;
@@ -282,7 +282,7 @@ function ManageBookings() {
                     type="button"
                     aria-pressed={on}
                     onClick={() => setScope(key)}
-                    className="rounded-[10px] px-[15px] py-[8px] text-[13px] font-medium transition-all duration-200"
+                    className="rounded-[10px] px-[13px] py-[6px] text-[12.5px] font-medium transition-all duration-200"
                     style={
                       on
                         ? {
@@ -299,7 +299,7 @@ function ManageBookings() {
               })}
             </div>
 
-            <div className="mb-[18px] flex flex-col gap-3 md:flex-row md:items-center">
+            <div className="mb-[12px] flex flex-col gap-2.5 md:flex-row md:items-center">
               <div
                 className="relative flex min-w-0 flex-1 items-center rounded-[11px]"
                 style={{ background: "rgba(255,255,255,0.52)", border: "1px solid rgba(110,106,96,0.20)" }}
@@ -309,7 +309,7 @@ function ManageBookings() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search bookings..."
-                  className="w-full bg-transparent py-[11px] pl-[44px] pr-4 text-[14px] outline-none"
+                  className="w-full bg-transparent py-[9px] pl-[44px] pr-4 text-[13.5px] outline-none"
                   style={{ color: "#2E3138" }}
                 />
               </div>
@@ -361,7 +361,7 @@ function ManageBookings() {
                       aria-label={label}
                       aria-pressed={on}
                       onClick={() => setView(key)}
-                      className="grid h-[42px] w-[44px] shrink-0 place-items-center rounded-[11px] transition-all duration-200"
+                      className="grid h-[38px] w-[40px] shrink-0 place-items-center rounded-[11px] transition-all duration-200"
                       style={
                         on
                           ? { background: "rgba(255,255,255,0.72)", border: "1px solid rgba(184,142,67,0.7)", color: "#8A6A24" }
@@ -381,7 +381,7 @@ function ManageBookings() {
                     setCountry("all");
                     setArrival("all");
                   }}
-                  className="grid h-[42px] w-[44px] shrink-0 place-items-center rounded-[11px]"
+                  className="grid h-[38px] w-[40px] shrink-0 place-items-center rounded-[11px]"
                   style={{ background: "rgba(255,255,255,0.42)", border: "1px solid rgba(110,106,96,0.20)", color: "#6B6858" }}
                 >
                   <SlidersHorizontal size={17} strokeWidth={1.9} />
@@ -389,7 +389,7 @@ function ManageBookings() {
               </div>
             </div>
 
-            <div className={view === "list" ? "space-y-[14px]" : "grid grid-cols-1 gap-[14px] xl:grid-cols-2"}>
+            <div className={view === "list" ? "space-y-[10px]" : "grid grid-cols-1 gap-[10px] xl:grid-cols-2"}>
               {filtered.map((b) => (
                 <BookingCard key={b.id} booking={b} />
               ))}
